@@ -25,10 +25,10 @@ spec:
               type: object
               properties:
                 whiteList:
-                  type: array
-                  items:
-                    type: string
-                blackList:
-                  type: array
-                  items:
-                    type: string
+                  type: string
+#                   items:
+#                     type: string
+#                 blackList:
+#                   type: array
+#                   items:
+#                     type: string
