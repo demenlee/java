@@ -23,33 +23,37 @@ spec:
           properties:
             spec:
               description: ResourceSyncSpec defines main field
-              includeBindPorts:
-                type: boolean
-              compareData:
-                type: object
-                properties:
-                  overwrite:
-                    type: boolean
-                  filename:
-                    type: string
-              syncData:
-                type: string
-                enum:
-                  - include-delete
-                  - exclude-delete
-              syncResources:
-                type: array
-                items:
+              type: object
+              properties:
+                includeBindPorts:
+                  type: boolean
+                compareData:
+                  type: object
+                  properties:
+                    overwrite:
+                      type: boolean
+                    filename:
+                      type: string
+                syncData:
                   type: string
-              resourceType:
-                type: string
-              sender:
-                type: string
+                  enum:
+                    - include-delete
+                    - exclude-delete
+                syncResources:
+                  type: array
+                  items:
+                    type: string
+                resourceType:
+                  type: string
+                sender:
+                  type: string
             status:
               description: Defines the observed state of ResourceSync
-              state:
-                type: string
-                enum:
-                  - Failed
-                  - Processing
-                  - Successful
+              type: object
+              properties:
+                state:
+                  type: string
+                  enum:
+                    - Failed
+                    - Processing
+                    - Successful
