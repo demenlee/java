@@ -1,0 +1,55 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: resourcesync.apps.quark.io
+spec:
+  group: apps.quark.io
+  names:
+    kind: ResourceSync
+    listKind: ResourceSyncList
+    plural: resourcesyncs
+    singular: resourcesync
+  scope: Namespaced
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          description: The Schema for the ResourceSync API
+          type: object
+          properties:
+            spec:
+              description: ResourceSyncSpec defines main field
+              includeBindPorts:
+                type: boolean
+              compareData:
+                type: object
+                properties:
+                  overwrite:
+                    type: boolean
+                  filename:
+                    type: string
+              syncData:
+                type: string
+                enum:
+                  - include-delete
+                  - exclude-delete
+              syncResources:
+                type: array
+                items:
+                  type: string
+              resourceType:
+                type: string
+              sender:
+                type: string
+            status:
+              description: Defines the observed state of ResourceSync
+              state:
+                type: string
+                enum:
+                  - Failed
+                  - Processing
+                  - Successful
