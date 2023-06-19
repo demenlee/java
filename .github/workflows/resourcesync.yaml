@@ -39,11 +39,24 @@ spec:
                   enum:
                     - include-delete
                     - exclude-delete
-                syncResources:
-                  type: array
-                  items:
-                    type: string
+                multiResourceParam:
+                  type: object
+                  properties:
+                    updateLists:
+                      type: array
+                      items:
+                        type: string
+                    deleteLists:
+                      type: array
+                      items:
+                        type: string
+                    createLists:
+                      type: array
+                      items:
+                        type: string
                 resourceType:
+                  type: string
+                resourceID:
                   type: string
                 sender:
                   type: string
