@@ -40,20 +40,24 @@ spec:
                     - include-delete
                     - exclude-delete
                 multiResourceParam:
-                  type: object
-                  properties:
-                    updateLists:
-                      type: array
-                      items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      resourceType:
                         type: string
-                    deleteLists:
-                      type: array
-                      items:
-                        type: string
-                    createLists:
-                      type: array
-                      items:
-                        type: string
+                      updateLists:
+                        type: array
+                        items:
+                          type: string
+                      deleteLists:
+                        type: array
+                        items:
+                          type: string
+                      createLists:
+                        type: array
+                        items:
+                          type: string
                 resourceType:
                   type: string
                 resourceID:
